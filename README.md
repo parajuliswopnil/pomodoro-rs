@@ -1,5 +1,10 @@
 To use the pomodoro clock, you will first need to install beeping binary from 
 
+Prerequisits 
+
+If you have not installed rust, install it 
+[Rust Install](https://www.rust-lang.org/tools/install)
+
 ```bash 
 git clone https://github.com/RustAudio/cpal
 cd cpal 
