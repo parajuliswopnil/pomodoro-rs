@@ -43,17 +43,19 @@ impl PomodoroMeta {
 
     async fn pomodoro_loop(&mut self) {
         while self.cycle != 0 {
-            while self.work != 0 {
+            let mut work = self.work;
+            while work != 0 {
                 sleep(Duration::from_secs(1)).await;
-                self.work -= 1;
-                println!("working time left {}: mins {}: secs", self.work / 60, self.work % 60);
+                work -= 1;
+                println!("working time left {}: mins {}: secs", work / 60, work % 60);
             }
             make_beep(1).await;
 
-            while self.rest != 0 {
+            let mut rest = self.rest;
+            while rest != 0 {
                 sleep(Duration::from_secs(1)).await;
-                self.rest -= 1;
-                println!("resting time left {}: mins {}: secs", self.rest / 60, self.rest % 60);
+                rest -= 1;
+                println!("resting time left {}: mins {}: secs", rest / 60, rest % 60);
             }
 
             make_beep(2).await;
